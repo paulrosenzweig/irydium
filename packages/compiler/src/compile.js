@@ -1,12 +1,16 @@
-import { mdToSvx } from "./mdToSvx";
+import { mdToSvx, getProcessedSvx } from "./mdToSvx";
 import { svxToHTML } from "./svxToHTML";
 
 export function compile(input, options = {}) {
+  if (options.mode === "mdsvex_input") {
+    return getProcessedSvx(input).then((text) => ({ html: text }));
+  }
   return mdToSvx(input)
     .then(({ rootComponent, subComponents, frontMatter }) => {
-      return options.mode === "mdsvex"
-        ? { html: rootComponent.code, frontMatter }
-        : svxToHTML(rootComponent, subComponents, frontMatter, options);
+      if (options.mode === "mdsvex") {
+        return { html: rootComponent.code, frontMatter };
+      }
+      return svxToHTML(rootComponent, subComponents, frontMatter, options);
     })
     .catch((err) => {
       console.error(err);

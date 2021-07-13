@@ -23,7 +23,10 @@
   "dependencies": {
     "cross-fetch": "^3.0.6",
     "front-matter": "^4.0.2",
+    "hast-util-to-mdast": "^8.1.0",
     "js-yaml": "^4.0.0",
+    "mdast-util-frontmatter": "^1.0.0",
+    "mdast-util-to-markdown": "^1.0.1",
     "mdsvex": "^0.9.7",
     "mustache": "^4.0.1",
     "rollup": "^2.33.3",

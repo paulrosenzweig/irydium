@@ -46,6 +46,7 @@
     <select bind:value={mode}>
       <option value="html">Rendered</option>
       <option value="rawhtml">Raw HTML</option>
+      <option value="mdsvex_input">mdsvex input</option>
       <option value="mdsvex">mdsvex output</option>
     </select>
   </div>
